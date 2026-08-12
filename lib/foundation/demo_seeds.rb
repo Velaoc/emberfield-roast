@@ -122,9 +122,9 @@ module Foundation
 
       catalog = Foundation::Storefront::Product.order(:position).index_by(&:slug)
       seed_order!(user, catalog, "fulfilled", 21.days.ago,
-        [ ["sunrise-blend", 1], ["highland-bourbon", 2] ])
+        [ [ "sunrise-blend", 1 ], [ "highland-bourbon", 2 ] ])
       seed_order!(user, catalog, "paid", 3.days.ago,
-        [ ["emberfield-espresso", 1], ["windward-geisha", 1] ])
+        [ [ "emberfield-espresso", 1 ], [ "windward-geisha", 1 ] ])
       io.puts("Demo orders created for #{user.email}.")
     end
 
