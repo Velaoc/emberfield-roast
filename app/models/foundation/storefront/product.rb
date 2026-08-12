@@ -23,6 +23,8 @@ module Foundation
       validates :price_cents, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 999_999_999 }
       validates :inventory_quantity, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 1_000_000 }
       validates :position, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 1_000_000 }
+      validates :roast_level, length: { maximum: 40 }, allow_nil: true
+      validates :origin, length: { maximum: 120 }, allow_nil: true
       validates :currency, format: { with: /\A[A-Z]{3}\z/ }
       validate :safe_external_image_url
       validate :valid_image_attachment
@@ -46,6 +48,8 @@ module Foundation
         self.sku = sku.to_s.strip.upcase
         self.currency = currency.to_s.strip.upcase
         self.description = description.to_s.strip
+        self.roast_level = roast_level.to_s.strip.presence
+        self.origin = origin.to_s.strip.presence
         self.image_url = image_url.to_s.strip.presence
       end
 
