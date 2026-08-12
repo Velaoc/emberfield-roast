@@ -1,0 +1,20 @@
+<% title "Your orders" %>
+<section class="md-section"><div class="md-section__inner md-stack">
+  <div class="storefront-heading-row"><div><p class="md-section__eyebrow">Emberfield Roast</p><h1>Your orders</h1></div><%= link_to "Continue shopping", storefront_products_path, class: "md-button md-button--text" %></div>
+  <% if @orders.any? %>
+    <div class="md-list">
+      <% @orders.each do |order| %>
+        <div class="md-list-item storefront-order-item">
+          <div>
+            <strong><%= link_to "Order #{order.public_reference}", storefront_order_path(order.public_reference) %></strong>
+            <br><span><%= order.created_at.to_fs(:long) %> &middot; <%= order.state %></span>
+            <br><span><%= order.line_items.sum { |item| item.quantity } %> item<%= "s" unless order.line_items.sum { |item| item.quantity } == 1 %></span>
+          </div>
+          <strong><%= storefront_money(order.total_cents, order.currency) %></strong>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="md-card md-card--filled"><h2>No orders yet</h2><p>Once you check out, your orders will appear here.</p><%= link_to "Shop products", storefront_products_path, class: "md-button md-button--filled" %></div>
+  <% end %>
+</div></section>
