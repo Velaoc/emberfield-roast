@@ -7,10 +7,10 @@
       &middot; Last updated <%= Foundation::Legal::PRIVACY_UPDATED_ON.iso8601 %>
     </p>
     <p class="mt-2 rounded-md border border-md-tertiary bg-md-tertiary-container px-4 py-3 text-sm text-md-on-tertiary-container">
-      TODO-OPERATOR: This policy describes the template's defaults, not your
-      deployment. Review every section — especially lawful bases, processors,
-      retention, and international transfers — with qualified counsel before
-      launch, then bump the version in <code>Foundation::Legal</code>.
+      This demo runs in a preview environment. Before a production launch the
+      operator must complete the identity, processor, and transfer details
+      marked below and have the policy reviewed for their jurisdiction;
+      nothing on this page makes the service compliant on its own.
     </p>
   </header>
 
@@ -20,9 +20,10 @@
       This policy explains how the operator of
       <%= identity[:application_name] %> ("we") handles personal data when you
       use the Service at https://<%= identity[:domain] %>.
-      <!-- TODO-OPERATOR: name the data controller (legal entity, address) and, if required, your data protection officer or EU/UK representative. -->
-      The data controller is <strong>TODO-OPERATOR: legal entity name and
-      address</strong>. For anything in this policy, contact
+      <strong>Data controller to be completed before production:</strong> the
+      legal entity, address, and any data protection officer or EU/UK
+      representative are not provided on this demo. For anything in this
+      policy, contact
       <%= mail_to identity[:legal_email], nil, class: "underline underline-offset-2" %>.
     </p>
   </section>
@@ -36,10 +37,10 @@
     <p><strong>Order data.</strong> Where purchases are enabled: what you
       ordered, amounts and currency, order status, and the email used at
       checkout; legal versions accepted; and provider session/payment/event
-      identifiers used to prevent duplicate fulfillment. The template sells
-      digital goods only and does not collect shipping addresses. Card
-      numbers and security codes are handled by our payment processor and
-      never reach our servers.</p>
+      identifiers used to prevent duplicate fulfillment. This demo collects
+      no shipping address and no card data — the preview checkout runs a
+      local simulator. A production launch with real payments must update
+      this section for the payment and shipping processors actually used.</p>
     <p><strong>Session data.</strong> Cookies that keep you signed in,
       remember-me tokens if you opt in, device and browser details, IP address,
       approximate location when available, sign-in method, last activity,
@@ -65,12 +66,12 @@
   <section>
     <h2 class="text-xl font-semibold">4. Lawful bases</h2>
     <p>
-      <strong>TODO-OPERATOR:</strong> if you are subject to the GDPR/UK GDPR
-      or similar, map each purpose above to a lawful basis. The template's
-      expected mapping is: performing our contract with you (accounts,
-      orders, transactional mail), legitimate interests (security, abuse
-      prevention, service improvement), legal obligation (bookkeeping,
-      assent records), and consent where you opt in to anything optional.
+      <strong>Before production:</strong> if you are subject to the GDPR/UK
+      GDPR or similar, map each purpose above to a lawful basis. The expected
+      mapping is: performing our contract with you (accounts, orders,
+      transactional mail), legitimate interests (security, abuse prevention,
+      service improvement), legal obligation (bookkeeping, assent records),
+      and consent where you opt in to anything optional.
     </p>
   </section>
 
@@ -81,11 +82,10 @@
       instructions, under data processing agreements:
     </p>
     <ul class="list-disc space-y-1 pl-6">
-      <li>Hosting/infrastructure: <strong>TODO-OPERATOR: name your host and region.</strong></li>
-      <li>Content delivery and bot protection: Cloudflare (proxying, Turnstile challenges).</li>
-      <li>Email delivery: <strong>TODO-OPERATOR: name your SMTP/email provider.</strong></li>
-      <li>Payments (where enabled): Stripe, which acts as its own controller for card data.</li>
-      <li><strong>TODO-OPERATOR:</strong> list any analytics, error-tracking, or support tooling you add.</li>
+      <li>Hosting/infrastructure: the Holodex preview platform; production hosting region to be completed by the operator.</li>
+      <li>Email delivery: transactional email via the preview's relay where configured; provider to be completed for production.</li>
+      <li>Payments: this demo takes no real payment — the preview checkout runs a local simulator and never contacts Stripe. A production deployment that enables Stripe must update this section; Stripe acts as its own controller for card data.</li>
+      <li>Analytics, error-tracking, or support tooling: none are added in this demo; list any before production.</li>
     </ul>
     <p>
       We disclose data to authorities only where a law we are subject to
@@ -114,7 +114,7 @@
     <ul class="list-disc space-y-1 pl-6">
       <li>Account data: kept while the account exists; deleted or anonymized promptly after account deletion, except where law requires longer.</li>
       <li>Legal-assent records: kept for the life of the account plus the limitation period for contract claims. <!-- TODO-OPERATOR: confirm the period for your jurisdiction. --></li>
-      <li>Order and invoice data: kept for the statutory bookkeeping period. <!-- TODO-OPERATOR: e.g. 6-10 years depending on jurisdiction. --></li>
+      <li>Order and invoice data: kept for the statutory bookkeeping period (6-10 years depending on jurisdiction; confirm yours before production).</li>
       <li>Server logs and security counters: rotated on a short schedule, typically 30-90 days.</li>
       <li>Device session history: kept for up to 12 months by default, then removed by a daily retention job.</li>
     </ul>
@@ -138,11 +138,12 @@
   <section>
     <h2 class="text-xl font-semibold">9. International transfers</h2>
     <p>
-      <strong>TODO-OPERATOR:</strong> state where your servers and processors
-      are located and, if personal data leaves your users' jurisdiction (for
-      example EU data processed in the US), the transfer mechanism you rely
-      on — adequacy decisions, Standard Contractual Clauses, or the EU-US
-      Data Privacy Framework — for each processor in Section 5.
+      <strong>Before production:</strong> state where your servers and
+      processors are located and, if personal data leaves your users'
+      jurisdiction (for example EU data processed in the US), the transfer
+      mechanism you rely on — adequacy decisions, Standard Contractual
+      Clauses, or the EU-US Data Privacy Framework — for each processor in
+      Section 5.
     </p>
   </section>
 
