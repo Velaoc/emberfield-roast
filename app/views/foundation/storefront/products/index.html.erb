@@ -1,9 +1,12 @@
 <% title "Shop" %>
 <section class="md-section" aria-labelledby="catalog-title">
   <div class="md-section__inner">
-    <p class="md-section__eyebrow">Storefront</p>
+    <p class="md-section__eyebrow">Emberfield Roast</p>
     <div class="storefront-heading-row">
-      <h1 id="catalog-title">Shop</h1>
+      <div>
+        <h1 id="catalog-title">Shop the roast</h1>
+        <p>Fresh-roasted coffee, bagged and on the shelf. Roasted in small batches every week.</p>
+      </div>
       <%= link_to "View cart", storefront_cart_path, class: "md-button md-button--tonal" %>
     </div>
     <% if @products.any? %>
@@ -15,6 +18,12 @@
             <% end %>
             <div class="md-stack storefront-product-card__body">
               <div><h2><%= link_to product.name, storefront_product_path(product.slug) %></h2><p><%= truncate(product.description, length: 150) %></p></div>
+              <% if product.roast_level.present? || product.origin.present? %>
+                <div class="storefront-card-meta">
+                  <%= content_tag(:span, product.roast_level, class: "md-chip") if product.roast_level.present? %>
+                  <%= content_tag(:span, product.origin, class: "md-chip") if product.origin.present? %>
+                </div>
+              <% end %>
               <strong><%= storefront_money(product.price_cents, product.currency) %></strong>
               <%= link_to "View product", storefront_product_path(product.slug), class: "md-button md-button--filled" %>
             </div>
