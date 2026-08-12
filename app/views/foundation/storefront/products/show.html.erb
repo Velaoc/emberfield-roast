@@ -4,8 +4,14 @@
     <div class="storefront-product-detail__image"><%= storefront_product_image(@product, alt: @product.description.presence || @product.name) %></div>
     <div class="md-stack">
       <%= link_to "Back to shop", storefront_products_path %>
-      <div><p class="md-section__eyebrow">Available</p><h1><%= @product.name %></h1></div>
+      <div><p class="md-section__eyebrow"><%= @product.roast_level.presence || "Coffee" %> &middot; <%= @product.origin.presence || "Roasted by Emberfield" %></p><h1><%= @product.name %></h1></div>
       <p><%= simple_format(@product.description, {}, wrapper_tag: "span") %></p>
+      <% if @product.roast_level.present? || @product.origin.present? %>
+        <div class="storefront-card-meta">
+          <%= content_tag(:span, "Roast: #{@product.roast_level}", class: "md-chip") if @product.roast_level.present? %>
+          <%= content_tag(:span, "Origin: #{@product.origin}", class: "md-chip") if @product.origin.present? %>
+        </div>
+      <% end %>
       <strong class="storefront-price"><%= storefront_money(@product.price_cents, @product.currency) %></strong>
       <%= form_with url: items_storefront_cart_path(@product), class: "md-stack" do |form| %>
         <div class="md-field">
