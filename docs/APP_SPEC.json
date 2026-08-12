@@ -1,0 +1,67 @@
+{
+  "name": "Emberfield Roast",
+  "purpose": "Online storefront for a small coffee roaster: a catalog of coffees with photos, prices, roast level and origin, a guest-first cart and checkout, and order history for signed-in customers.",
+  "actors": [
+    "guest shopper",
+    "signed-in customer",
+    "store admin"
+  ],
+  "entities": [
+    {
+      "name": "Product",
+      "relationships": [
+        "belongs to the storefront catalog",
+        "has many line items",
+        "has one attached image or an external image URL",
+        "stores name, slug, sku, description, price_cents, currency, roast_level, origin, inventory, active"
+      ]
+    },
+    {
+      "name": "Order",
+      "relationships": [
+        "belongs to a user (optional, guest checkout allowed)",
+        "has many line items",
+        "records state, email, totals, legal acceptance, public receipt reference, checkout key digest",
+        "guest receipt reachable via signed expiring access token"
+      ]
+    },
+    {
+      "name": "LineItem",
+      "relationships": [
+        "belongs to an order",
+        "snapshots product name, sku, unit price, quantity, line total"
+      ]
+    },
+    {
+      "name": "User",
+      "relationships": [
+        "has many orders",
+        "has many legal acceptances"
+      ]
+    }
+  ],
+  "workflows": [
+    {
+      "name": "Browse catalog",
+      "description": "Guest or signed-in visitor sees coffees with photos, roast level, origin, and price, and opens a product detail page."
+    },
+    {
+      "name": "Add to cart and checkout",
+      "description": "Visitor adds items with quantity, reviews the cart, and checks out with an email; no account required. Demo checkout completes through the local test simulator with no card data."
+    },
+    {
+      "name": "View past orders",
+      "description": "Signed-in customer sees their own past orders and receipts; guests reach a receipt via a signed, expiring access link."
+    }
+  ],
+  "modules": [
+    "storefront"
+  ],
+  "integrations": [
+    {
+      "name": "Stripe",
+      "demo_adapter": true
+    }
+  ],
+  "seed_demo": "Six coffees (single origin and blends) with roast level, origin, price, and external photo URLs; one demo customer account with a past paid order and line items so order history is visible immediately."
+}
