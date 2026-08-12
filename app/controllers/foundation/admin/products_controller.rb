@@ -92,7 +92,7 @@ module Foundation
       def product_attributes
         params.require(:product).permit(
           :name, :slug, :sku, :description, :price_cents, :currency,
-          :image_url, :image, :position
+          :image_url, :image, :position, :roast_level, :origin
         )
       end
     end
