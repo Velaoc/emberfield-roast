@@ -128,30 +128,6 @@ Rails.application.routes.draw do
     as: :storefront_stripe_webhook
   # /foundation:module storefront
 
-  # foundation:module crm
-  if Foundation.module_available?("crm")
-    scope "crm", module: "foundation/crm", as: :crm do
-      root to: "home#show"
-      resources :contacts
-      resources :companies
-      resources :leads do
-        post :assign, on: :member
-      end
-      resources :opportunities do
-        post :move_stage, on: :member
-        post :assign, on: :member
-      end
-      resources :pipelines do
-        resources :stages, controller: "pipeline_stages", except: %i[index show]
-      end
-      resources :tasks do
-        post :complete, on: :member
-      end
-      resources :notes, only: %i[create destroy]
-      resources :tags, only: %i[index create destroy]
-    end
-  end
-  # /foundation:module crm
 
   # Team workspaces: organizations, members, switching, and invitations
   # (SPEC M4) — the organizations gem's engine, mounted at the root. All

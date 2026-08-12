@@ -34,11 +34,6 @@
         else # foundation:module storefront
           nav_items.insert(2, { label: "Billing", icon: :payments, href: billing_path, active: request.path.start_with?("/billing") || request.path == pricing_path })
         end # foundation:module storefront
-        # foundation:module crm
-        if Foundation.module_available?("crm")
-          nav_items.insert(-1, { label: "CRM", icon: :person, href: crm_root_path, active: request.path.start_with?("/crm") })
-        end
-        # /foundation:module crm
         if current_user.admin?
           nav_items << { label: "Admin", icon: :task_alt, href: madmin_root_path, active: request.path.start_with?("/admin") }
         end

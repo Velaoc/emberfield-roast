@@ -7,7 +7,7 @@
 # shipping an app; editing them here by hand works too.
 shared:
   # Display name used in page titles, meta tags, and mail.
-  application_name: "Application"
+  application_name: "Emberfield Roast"
 
   # Absolute URL or asset path for the product logo. Blank renders a
   # plain wordmark instead.
@@ -19,7 +19,7 @@ shared:
 
   # Fallbacks for pages that do not set their own title/description.
   default_page_title: "Welcome"
-  default_page_description: "A production-ready Rails application."
+  default_page_description: "Online storefront for a small coffee roaster: a catalog of coffees with photos and prices, a cart, checkout, and order history for signed-in customers."
 
   # Absolute URL of the default Open Graph / social sharing image.
   # Blank omits the og:image tag.
@@ -30,12 +30,12 @@ shared:
   social_links: {}
 
   # Operator mailboxes surfaced in support links and legal pages.
-  support_email: "support@example.com"
-  legal_email: "legal@example.com"
+  support_email: "support@emberfield-roast.api.holode.xyz"
+  legal_email: "legal@emberfield-roast.api.holode.xyz"
 
   # Canonical production domain, no scheme. Used for sitemaps and
   # absolute URLs in mail.
-  domain: "example.com"
+  domain: "emberfield-roast.api.holode.xyz"
 
   # Exact storefront feature flag (SPEC M8): only the YAML boolean true
   # enables its routes, navigation, models' entry points, and production

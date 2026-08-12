@@ -2,9 +2,6 @@ ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
 require_relative "support/billing_test_helper"
-# foundation:module crm
-require_relative "support/crm_test_helper" if File.exist?(File.expand_path("support/crm_test_helper.rb", __dir__))
-# /foundation:module crm
 
 # Drives OmniAuth in its test mode: the request phase never contacts a
 # provider and instead redirects straight to the callback carrying the
