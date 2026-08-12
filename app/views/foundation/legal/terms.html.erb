@@ -7,10 +7,11 @@
       &middot; Last updated <%= Foundation::Legal::TERMS_UPDATED_ON.iso8601 %>
     </p>
     <p class="mt-2 rounded-md border border-md-tertiary bg-md-tertiary-container px-4 py-3 text-sm text-md-on-tertiary-container">
-      TODO-OPERATOR: This document is a starting point written for a generic
-      template, not legal advice. Have qualified counsel review and adapt it
-      to your product, your jurisdiction, and your risk tolerance before
-      launch, then bump the version in <code>Foundation::Legal</code>.
+      Emberfield Roast is a demo storefront: checkout in this preview runs
+      against a local test simulator and no real payment is taken. Before a
+      production launch an operator must complete the operator identity,
+      shipping, tax, and legal review items listed below; nothing on this
+      page makes the service compliant on its own.
     </p>
   </header>
 
@@ -19,9 +20,9 @@
     <p>
       These Terms of Service (the "Terms") are an agreement between you and
       the operator of <%= identity[:application_name] %> (the "Service").
-      <!-- TODO-OPERATOR: replace with the operator's legal name, entity type, and registered address. -->
-      The operator is identified as <strong>TODO-OPERATOR: legal entity name and
-      address</strong>. Questions about these Terms can be sent to
+      <strong>Operator to be completed before production:</strong> the legal
+      name, entity type, and registered address of the operator are not
+      provided on this demo. Questions about these Terms can be sent to
       <%= mail_to identity[:legal_email], nil, class: "underline underline-offset-2" %>.
     </p>
   </section>
@@ -48,7 +49,7 @@
     <p>
       You must be at least 16 years old to create an account, or older where
       the law of your residence sets a higher minimum for agreeing to terms
-      like these. <!-- TODO-OPERATOR: adjust the minimum age for your market and audience. -->
+      like these.
       By creating an account you confirm that you meet this requirement.
     </p>
     <p>
@@ -108,20 +109,19 @@
       before you confirm.
     </p>
     <p>
-      The template storefront supports digital goods only and collects no
-      shipping address. Inventory may represent limited licenses or service
-      capacity. <strong>TODO-OPERATOR:</strong> describe digital delivery
-      timing, access duration, support, applicable sales/VAT taxes, and any
-      regional sales restrictions. Do not offer shipped goods until you add
-      address collection, shipping charges, tax treatment, and appropriate
-      consumer terms.
+      The preview checkout runs against a local test simulator: no payment
+      method is requested, no card data is collected or stored, and no real
+      charge is made. Emberfield Roast sells roasted coffee in this demo.
+      <strong>Before a production launch:</strong> the operator must add
+      shipping address collection, shipping and tax calculation, fulfillment
+      integration, and consumer terms for physical goods; this page does not
+      cover those.
     </p>
     <p>
-      <strong>TODO-OPERATOR:</strong> describe your actual refund and
-      cancellation policy here (statutory withdrawal rights in your market,
-      goodwill refunds, subscription proration, digital-goods exceptions).
-      Until replaced, the default is: refunds are granted where required by
-      law, and otherwise at the operator's reasonable discretion.
+      Refunds for this demo are granted where required by law, and otherwise
+      at the operator's reasonable discretion. <strong>Before production:</strong>
+      describe the actual refund and cancellation policy for the market you
+      operate in.
     </p>
   </section>
 
